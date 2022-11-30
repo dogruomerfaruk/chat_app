@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:my_app/widgets/appbar.dart';
 import 'package:my_app/screens/messages.dart';
 import 'package:my_app/screens/chat_page.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -57,7 +58,22 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final int _counter = 0;
+  String user = "";
+
+  saveUserData(value) async {
+    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+    await sharedPreferences.setString('user', value);
+    setState(() {
+      user = value;
+    });
+  }
+
+// Read Data
+  getUserData() async {
+    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+    String user3 = sharedPreferences.getString('user') ?? "";
+    return user3;
+  }
 
   final users = FirebaseFirestore.instance
       .collection('users')
@@ -84,8 +100,12 @@ class _HomePageState extends State<HomePage> {
                   itemCount: snapshot.data.docs.length, // items length
                   itemBuilder: (context, index) {
                     return ListTile(
+                      tileColor: user == snapshot.data.docs[index]['username']
+                          ? Colors.yellow
+                          : Colors.white,
                       title: Text(snapshot.data.docs[index]['username']),
                       onTap: () {
+                        saveUserData(snapshot.data.docs[index]['username']);
                         Navigator.push(
                           context,
                           MaterialPageRoute(
