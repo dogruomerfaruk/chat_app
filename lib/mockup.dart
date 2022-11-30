@@ -26,6 +26,26 @@ List<Map<String, dynamic>> oldMessages1 = [
     'sender': 'Ahmet',
     'timestamp': DateTime.now(),
   },
+  {
+    'message': 'obaa',
+    'sender': 'Ali',
+    'timestamp': DateTime.now(),
+  },
+  {
+    'message': 'okk',
+    'sender': 'Ali',
+    'timestamp': DateTime.now(),
+  },
+  {
+    'message': 'rmmm',
+    'sender': 'Ali',
+    'timestamp': DateTime.now(),
+  },
+  {
+    'message': 'superrr',
+    'sender': 'Ali',
+    'timestamp': DateTime.now(),
+  },
 ];
 
 List<Map<String, dynamic>> recentMessages1 = [
@@ -75,6 +95,21 @@ List<Map<String, dynamic>> oldMessages2 = [
   {
     'message': 'tammam',
     'sender': 'Ahmet',
+    'timestamp': DateTime.now(),
+  },
+  {
+    'message': 'qweqweq',
+    'sender': 'John',
+    'timestamp': DateTime.now(),
+  },
+  {
+    'message': '123123 sneden',
+    'sender': 'John',
+    'timestamp': DateTime.now(),
+  },
+  {
+    'message': '13rrrrfedfdsf  dsadas asd ',
+    'sender': 'John',
     'timestamp': DateTime.now(),
   },
 ];
